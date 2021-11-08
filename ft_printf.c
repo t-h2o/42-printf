@@ -1,6 +1,7 @@
 #include	"./libftprintf.h"
 #include	"./libft.h"
 #include	<stdio.h>
+
 void foo(char *fmt, ...)
 {
 	va_list ap;
@@ -9,6 +10,8 @@ void foo(char *fmt, ...)
 
 	va_start(ap, fmt);
 	while (*fmt)
+	{
+		printf("fmt :%c\n", *fmt);
 		switch(*fmt++) {
 		case 's':                       /* string */
 			s = va_arg(ap, char *);
@@ -24,6 +27,7 @@ void foo(char *fmt, ...)
 			printf("char %c\n", c);
 			break;
 		}
+	}
 	va_end(ap);
     /* use ap2 to iterate over the arguments again */
 }
@@ -31,6 +35,30 @@ void foo(char *fmt, ...)
 void
 	ft_printf(const char *s, ...)
 {
+	va_list	arg;
 
-	ft_putstr_fd((char *)s, 1);
+	va_start(arg, s);
+
+	while (*s)
+	{
+		if (*s == '%')
+		{
+			s++;
+			if (*s == 'd')
+			{
+				int n = va_arg(arg, int);
+				ft_putnbr_fd(n, 1);
+			}
+			if (*s == 's')
+			{
+				char *s = va_arg(arg, char *);
+				ft_putstr_fd(s, 1);
+			}
+		}
+		else
+		{
+			ft_putchar_fd(*s, 1);
+		}
+		s++;
+	}
 }

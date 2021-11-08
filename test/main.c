@@ -6,7 +6,7 @@
 /*   By: tgrivel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:14:36 by tgrivel           #+#    #+#             */
-/*   Updated: 2021/11/08 17:05:58 by tgrivel          ###   ########.fr       */
+/*   Updated: 2021/11/08 18:14:42 by tgrivel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,14 @@ int
 	printf("Buya\n");	
 	
 	printf("\tft_printf : \n\n");
-	ft_printf("Buya\n");	
+	ft_printf("Buya %d \n", 42);	
+	
+	printf("\n\n");
+	ft_printf("Buya %s \n", "[string add...]");	
 
 	printf("\n\n\tE N D\n\n");
 
-	foo("foo test", 42, "ffooo test", 'c', 'a');
+	foo("dscc", 42, "ffooo test", 'c', 'a');
 	
 	return (0);
 }

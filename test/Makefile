@@ -19,6 +19,7 @@ LIB		= -L. -lftprintf -lft
 	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
+	cp ../libftprintf.a ./
 	${CC} ${FLAGS} -o ${NAME} ${OBJS} ${LIB}
 
 all:		${NAME}
