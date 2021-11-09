@@ -20,17 +20,23 @@ int
 	printf("\n\n\tTEST PRINTF\n\n");
 
 	printf("\tprintf : \n\n");
-	printf("Buya\n");	
+
+	printf("Buya %.3d \n", 42);	
+	printf("Buya %.12d \n", 42);	
+	printf("Buya %.3d \n", 42123);	
 	
-	printf("\tft_printf : \n\n");
-	ft_printf("Buya %d \n", 42);	
+	printf("\n\tft_printf : \n\n");
+	
+	ft_printf("Buya %.3d \n", 42);	
+	ft_printf("Buya %.12d \n", 42);	
+	ft_printf("Buya %.3d \n", 42123);	
 	
 	printf("\n\n");
 	ft_printf("Buya %s \n", "[string add...]");	
 
 	printf("\n\n\tE N D\n\n");
 
-	foo("dscc", 42, "ffooo test", 'c', 'a');
+//	foo("dscc", 42, "ffooo test", 'c', 'a');
 	
 	return (0);
 }

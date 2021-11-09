@@ -4,9 +4,9 @@
 
 void foo(char *fmt, ...)
 {
-	va_list ap;
-	int d;
-	char c, *s;
+	va_list	ap;
+	int		d;
+	char	c, *s;
 
 	va_start(ap, fmt);
 	while (*fmt)
@@ -32,21 +32,45 @@ void foo(char *fmt, ...)
     /* use ap2 to iterate over the arguments again */
 }
 
+
+
 void
 	ft_printf(const char *s, ...)
 {
 	va_list	arg;
-
+	int		prec;
+	int		ten;
+	int		n;
+	
 	va_start(arg, s);
 
 	while (*s)
 	{
 		if (*s == '%')
 		{
+			prec = 0;
 			s++;
+			if (*s == '.')
+				{
+					prec = ft_atoi(++s);
+					ten = 1;
+					while (prec >= (ten - 1))
+					{
+						ten *= 10;
+						s++;
+					}
+				}
 			if (*s == 'd')
 			{
-				int n = va_arg(arg, int);
+				ten = 1;
+				while (prec--)
+					ten *= 10;
+				n = va_arg(arg, int);
+				while (ten > n)
+				{
+					ft_putchar_fd('0', 1);
+					ten /= 10;
+				}
 				ft_putnbr_fd(n, 1);
 			}
 			if (*s == 's')
