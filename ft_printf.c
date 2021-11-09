@@ -32,18 +32,42 @@ void foo(char *fmt, ...)
     /* use ap2 to iterate over the arguments again */
 }
 
+int
+	ft_intlen(int nbr)
+{
+	size_t	n;
+	int		c;
 
+	c = 1;
+	if (nbr < 0)
+		c++;
+	if (nbr < 0)
+		n = (size_t) - nbr;
+	else
+		n = (size_t) nbr;
+	while ( n > 10)
+	{
+		n /= 10;
+		c++;
+	}
+//	printf("\nnb : %d\tintlen : %d\n", nbr, c);
+	return (c);
+}
 
-void
+int
 	ft_printf(const char *s, ...)
 {
 	va_list	arg;
 	int		prec;
 	int		ten;
+	int		len;
 	int		n;
-	
-	va_start(arg, s);
+	int		sum;
+	char	*str;
 
+	va_start(arg, s);
+	
+	sum = 0;
 	while (*s)
 	{
 		if (*s == '%')
@@ -54,35 +78,45 @@ void
 				{
 					prec = ft_atoi(++s);
 					ten = 1;
-					while (prec >= (ten - 1))
+					while (prec / ten > 0)
 					{
 						ten *= 10;
 						s++;
 					}
+					if (prec == 0)
+						s++;
 				}
 			if (*s == 'd')
 			{
-				ten = 1;
-				while (prec--)
-					ten *= 10;
 				n = va_arg(arg, int);
-				while (ten > n)
-				{
+				len = ft_intlen(n);
+				if (len > prec)
+					sum += len;
+				else
+					sum += prec;
+				while (prec-- > len)
 					ft_putchar_fd('0', 1);
-					ten /= 10;
-				}
 				ft_putnbr_fd(n, 1);
 			}
 			if (*s == 's')
 			{
-				char *s = va_arg(arg, char *);
-				ft_putstr_fd(s, 1);
+				str = va_arg(arg, char *);
+				sum += ft_strlen(str);
+				ft_putstr_fd(str, 1);
+			}
+			if (*s == '%')
+			{
+				sum++;
+				ft_putchar_fd('%', 1);
 			}
 		}
 		else
 		{
+			sum++;
 			ft_putchar_fd(*s, 1);
 		}
 		s++;
 	}
+
+	return (sum);
 }
