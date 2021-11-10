@@ -1,36 +1,7 @@
 #include	"./libftprintf.h"
 #include	"./libft.h"
+
 #include	<stdio.h>
-
-void foo(char *fmt, ...)
-{
-	va_list	ap;
-	int		d;
-	char	c, *s;
-
-	va_start(ap, fmt);
-	while (*fmt)
-	{
-		printf("fmt :%c\n", *fmt);
-		switch(*fmt++) {
-		case 's':                       /* string */
-			s = va_arg(ap, char *);
-			printf("string %s\n", s);
-			break;
-		case 'd':                       /* int */
-			d = va_arg(ap, int);
-			printf("int %d\n", d);
-            break;
-		case 'c':                       /* char */
-			/* Note: char is promoted to int. */
-			c = va_arg(ap, int);
-			printf("char %c\n", c);
-			break;
-		}
-	}
-	va_end(ap);
-    /* use ap2 to iterate over the arguments again */
-}
 
 int
 	ft_intlen(int nbr)
@@ -50,7 +21,6 @@ int
 		n /= 10;
 		c++;
 	}
-//	printf("\nnb : %d\tintlen : %d\n", nbr, c);
 	return (c);
 }
 
@@ -72,7 +42,7 @@ int
 	{
 		if (*s == '%')
 		{
-			prec = 0;
+			prec = -1;
 			s++;
 			if (*s == '.')
 				{
@@ -86,8 +56,18 @@ int
 					if (prec == 0)
 						s++;
 				}
+			if (*s == 'l')
+			{
+				s++;
+				if (*s == 'x')
+				{
+					
+				}
+			}
 			if (*s == 'd')
 			{
+				if (prec == -1)
+					prec = 0;
 				n = va_arg(arg, int);
 				len = ft_intlen(n);
 				if (len > prec)
@@ -96,27 +76,45 @@ int
 					sum += prec;
 				while (prec-- > len)
 					ft_putchar_fd('0', 1);
-				ft_putnbr_fd(n, 1);
+				ft_putdec(n);
 			}
 			if (*s == 's')
-			{
+			{	
 				str = va_arg(arg, char *);
+				if (prec >= 0)
+					str = ft_substr(str, 0, prec);
 				sum += ft_strlen(str);
 				ft_putstr_fd(str, 1);
 			}
+			if (*s == 'c')
+			{
+				n = va_arg(arg, int);
+				sum++;
+				ft_putchar_fd(n, 1);
+			}
+			if (*s == 'x')
+			{
+				long ptr = (long)va_arg(arg, int);
+				sum += ft_puthex(ptr);
+			}
+			if (*s == 'p')
+			{
+				long ptr = va_arg(arg, long);
+				ft_putstr_fd("0x", 1);
+				ft_puthex(ptr);
+			}
 			if (*s == '%')
 			{
-				sum++;
-				ft_putchar_fd('%', 1);
+				sum += ft_putchar('%');
 			}
+			
 		}
 		else
 		{
-			sum++;
-			ft_putchar_fd(*s, 1);
+			sum += ft_putchar(*s);
 		}
 		s++;
 	}
-
+	va_end(arg);
 	return (sum);
 }

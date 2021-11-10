@@ -14,6 +14,88 @@
 #include	"../libft.h"
 #include	<stdio.h>
 
+void
+	printf_nbr(void)
+{
+	int				n;
+	
+	int				i = FT_32B_MAX;
+	unsigned int	ui = FT_U_32B_MAX;
+	long			l = FT_64B_MAX;
+	unsigned long	ul = FT_U_64B_MAX;
+
+//	INT
+
+	// DECIMAL
+
+	n = printf("int\t\t%d", i);	
+	printf("\t%.2d\tchar\n", n);	
+	n = printf("int\t\t%d", i);	
+	printf("\t%.2d\tchar\n\n", n);	
+	
+
+	// HEXADECIMAL
+
+	n = printf("int\t\t%x", i);	
+	printf("\t%.2d\tchar\n", n);	
+	n = printf("int\t\t%x", i);	
+	printf("\t%.2d\tchar\n\n", n);	
+
+
+// UNSIGNED INT
+
+	//	DECIMAL
+
+	n = printf("unsigned int\t%u", ui);	
+	printf("\t%.2d\tchar\n", n);	
+	n = printf("unsigned int\t%u", ui);	
+	printf("\t%.2d\tchar\n\n", n);	
+
+
+	// HEXADECIMAL
+
+	n = printf("unsigned int\t%x", ui);	
+	printf("\t%.2d\tchar\n", n);	
+	n = printf("unsigned int\t%x", ui);	
+	printf("\t%.2d\tchar\n\n", n);	
+
+
+// LONG
+
+	// DECIMAL
+
+	n = printf("long\t\t%ld", l);	
+	printf("\t%.2d\tchar\n", n);	
+	n = printf("long\t\t%ld", l);	
+	printf("\t%.2d\tchar\n\n", n);	
+
+
+	// HEXADECIMAL
+
+	n = printf("long\t\t%lx", l);	
+	printf("\t%.2d\tchar\n", n);	
+	n = printf("long\t\t%lx", l);	
+	printf("\t%.2d\tchar\n\n", n);	
+
+
+// UNSIGNED LONG
+
+	// DECIMAL
+
+	n = printf("unsigned long\t%lu", ul);	
+	printf("\t%.2d\tchar\n", n);	
+	n = printf("unsigned long\t%lu", ul);	
+	printf("\t%.2d\tchar\n\n", n);	
+
+
+	// HEXADECIMAL
+
+	n = printf("unsigned long\t%lx", ul);	
+	printf("\t%.2d\tchar\n", n);	
+	n = printf("unsigned long\t%lx", ul);	
+	printf("\t%.2d\tchar\n\n", n);	
+}
+
 int
 	main(void)
 {
@@ -26,42 +108,6 @@ int
 	n = ft_printf("Buya %.0d...", 42);	
 	printf("\t%.2d\tchar\n\n", n);	
 	
-	n = printf("Buya %.5d...", 42);	
-	printf("\t%.2d\tchar\n", n);	
-	n = ft_printf("Buya %.5d...", 42);	
-	printf("\t%.2d\tchar\n\n", n);	
-	
-	n = printf("Buya %.51d...", 42);	
-	printf("\t%.2d\tchar\n", n);	
-	n = ft_printf("Buya %.51d...", 42);	
-	printf("\t%.2d\tchar\n\n", n);	
-	
-	n = printf("Buya %.3d...", 4212345);	
-	printf("\t%.2d\tchar\n", n);	
-	n = ft_printf("Buya %.3d...", 4212345);	
-	printf("\t%.2d\tchar\n\n", n);	
-	
-	n = printf("Buya %.3s...", "abeille");	
-	printf("\t%.2d\tchar\n", n);	
-	n = ft_printf("Buya %.3s...", "abeille");	
-	printf("\t%.2d\tchar\n\n", n);	
-		
-		
-	printf("\n\n\tE N D\n\n");
-
-//	foo("dscc", 42, "ffooo test", 'c', 'a');
-	
+	printf_nbr();	
 	return (0);
 }
-
-/*		42	prec	3
- *		042
- *
- *		ten = 100; (10 ^ 2)
- *		while (ten > n
- */
-
-/*		12
- *		42 ~ 2 char
- *		10 0 + 42
- */
