@@ -10,6 +10,8 @@ d’être considéré comme un tricheur.
 Vous apprendrez principalement à utiliser les
 arguments variadiques.
 
+[Some great informations about C operators](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B)
+
 ## Bytes values
 
 |data type		|bits	|bytes	|
