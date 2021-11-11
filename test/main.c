@@ -1,18 +1,41 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tgrivel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 15:14:36 by tgrivel           #+#    #+#             */
-/*   Updated: 2021/11/09 15:11:06 by tgrivel          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include	"../libftprintf.h"
 #include	"../libft.h"
 #include	<stdio.h>
+
+void	printf_nbr();
+
+int
+	main(void)
+{
+	printf("\n\n\tTEST PRINTF\n\n");
+
+	int	n;
+	
+	n = printf("Buya %.0d...", 42);	
+	printf("\t%.2d\tchar\n", n);	
+	n = ft_printf("Buya %.0d...", 42);	
+	printf("\t%.2d\tchar\n\n", n);	
+	
+	printf_nbr();	
+
+	return (0);
+}
+
+
+void
+	printf_str(void)
+{
+	int		n;
+
+	char	str[] = "ILoveMyWork";
+	
+	n = printf("str : %s", str);	
+	printf("\t%.2d\tchar\n", n);	
+	n = printf("str : %s", str);	
+	printf("\t%.2d\tchar\n\n", n);	
+
+}
+
 
 void
 	printf_nbr(void)
@@ -48,7 +71,7 @@ void
 
 	n = printf("unsigned int\t%u", ui);	
 	printf("\t%.2d\tchar\n", n);	
-	n = printf("unsigned int\t%u", ui);	
+	n = ft_printf("unsigned int\t%u", ui);	
 	printf("\t%.2d\tchar\n\n", n);	
 
 
@@ -56,7 +79,7 @@ void
 
 	n = printf("unsigned int\t%x", ui);	
 	printf("\t%.2d\tchar\n", n);	
-	n = printf("unsigned int\t%x", ui);	
+	n = ft_printf("unsigned int\t%x", ui);	
 	printf("\t%.2d\tchar\n\n", n);	
 
 
@@ -66,7 +89,7 @@ void
 
 	n = printf("long\t\t%ld", l);	
 	printf("\t%.2d\tchar\n", n);	
-	n = printf("long\t\t%ld", l);	
+	n = ft_printf("long\t\t%ld", l);	
 	printf("\t%.2d\tchar\n\n", n);	
 
 
@@ -74,7 +97,7 @@ void
 
 	n = printf("long\t\t%lx", l);	
 	printf("\t%.2d\tchar\n", n);	
-	n = printf("long\t\t%lx", l);	
+	n = ft_printf("long\t\t%lx", l);	
 	printf("\t%.2d\tchar\n\n", n);	
 
 
@@ -84,7 +107,7 @@ void
 
 	n = printf("unsigned long\t%lu", ul);	
 	printf("\t%.2d\tchar\n", n);	
-	n = printf("unsigned long\t%lu", ul);	
+	n = ft_printf("unsigned long\t%lu", ul);	
 	printf("\t%.2d\tchar\n\n", n);	
 
 
@@ -92,22 +115,7 @@ void
 
 	n = printf("unsigned long\t%lx", ul);	
 	printf("\t%.2d\tchar\n", n);	
-	n = printf("unsigned long\t%lx", ul);	
+	n = ft_printf("unsigned long\t%lx", ul);	
 	printf("\t%.2d\tchar\n\n", n);	
 }
 
-int
-	main(void)
-{
-	printf("\n\n\tTEST PRINTF\n\n");
-
-	int	n;
-	
-	n = printf("Buya %.0d...", 42);	
-	printf("\t%.2d\tchar\n", n);	
-	n = ft_printf("Buya %.0d...", 42);	
-	printf("\t%.2d\tchar\n\n", n);	
-	
-	printf_nbr();	
-	return (0);
-}
