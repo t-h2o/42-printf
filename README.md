@@ -48,3 +48,6 @@ arguments variadiques.
 
 ## Char
 
+## Flowchart
+
+[![printf drawio](./drawio/printf.drawio.svg)](https://app.diagrams.net/#Htheo-grivel%2F42-printf%2Fmain%2Fdrawio%2Fprintf.drawio.svg)
