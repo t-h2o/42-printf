@@ -39,10 +39,8 @@ void
 }
 
 int
-	ft_putdec(int nbr)
+	ft_intlen(int nbr)
 {
-	ft_write_nbr(nbr);
-	
 	size_t	n;
 	int		c;
 
@@ -59,4 +57,13 @@ int
 		c++;
 	}
 	return (c);
+}
+
+
+int
+	ft_putdec(int nbr)
+{
+	ft_write_nbr(nbr);
+	
+	return (ft_intlen(nbr));
 }

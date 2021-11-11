@@ -2,7 +2,9 @@
 # define	LIBFTPRINTF_H
 # include	<stdarg.h>
 
+int		ft_putstr(char *strtoprint, int prec);
 int		ft_printf(const char *s, ...);
+int		ft_intlen(int nbr);
 int		ft_putchar(int n);
 int		ft_puthex(long n);
 int		ft_putdec(int n);
