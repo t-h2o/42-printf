@@ -53,3 +53,47 @@ arguments variadiques.
 ## Flowchart
 
 [![printf drawio](./drawio/printf.drawio.svg)](https://app.diagrams.net/#Htheo-grivel%2F42-printf%2Fmain%2Fdrawio%2Fprintf.drawio.svg)
+
+
+
+## Test
+
+### Partie obligatoire
+
+Gestion de conversion simple
+
+- Testez chacune des conversion sans aucun flag 'cspdiuxX%'
+- Testez les cas spéciaux, comme 0, le plus petit int, une chaine de caractères vide ou un pointeur NULL.
+- Testez avec plusieurs arguments et conversions
+- Essayez les différents flags au milieu d'une phrase (d'autres caractères autour)
+
+###Soyons fous
+
+- Refaites tous les tests mais vérifiez que la valeur de retour correspond à la valeur de
+retour du vrai printf.
+- Essayez n'importe quelle combinaison de conversions.
+- Vérifiez ce qui se passe avec des conversions identiques à la suite.
+
+## Bonus
+
+Les bonus ne seront abordés que si votre partie obligatoire est excellente. 
+Cela signifie que vous devez compléter la partie obligatoire, 
+du début à la fin, que votre gestion d'erreur doit être parfaite, 
+même dans des situations tordues. Si tous les points ne sont pas attribués 
+pendant cette soutenance, aucun point ne sera comptabilisé dans les bonus.
+Gestion simple des flags
+
+- Vérifiez les flags '.', '-' et 0.
+- Vérifier %-d avec INT_MIN.
+- Vérifiez le flag - avec n'importe quelle valeur.
+- Vérifiez le flag 0 avec par exemple %04d.
+- Vérifiez le "." avec plusieurs précisions.
+- Pour chaque test, la valeur de retour doit correspondre à printf.
+- Pour chaque flag fonctionnel, donnez 1 point
+- Si tous les flags fonctionnent, donnez 2 points.
+Rate it from 0 (failed) through 5 (excellent)
+"# , +, espace"
+
+- Testez si les conversions marchent avec '#' + et 'espace' avec n'importe quelle combinaison de flags.
+- Chaque flag rapporte 1 point
+- Si tous les flags fonctionnent, rajoutez 2 points.
