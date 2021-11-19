@@ -13,7 +13,7 @@
 #include	"./libft.h"
 #include	"./libftprintf.h"
 
-void
+static void
 	ft_write_nbr(int n)
 {
 	int	fd = 1;
@@ -61,9 +61,19 @@ int
 
 
 int
-	ft_putdec(int nbr)
+	ft_putdec(int n, int prec)
 {
-	ft_write_nbr(nbr);
-	
-	return (ft_intlen(nbr));
+	int	len;
+	int	sum;
+
+	len = ft_intlen(n);
+	if (len > prec)
+		sum = len;
+	else
+		sum = prec;
+	while (prec-- > len)
+		ft_putchar_fd('0', 1);
+
+	ft_write_nbr(n);
+	return (sum);
 }

@@ -12,16 +12,6 @@ int
 
 	int	n;
 	
-	n = printf("Buya %e...", 42.4684f);
-	printf("\t%.2d\tchar\n", n);	
-	n = ft_printf("Buya %.0d...", 42);	
-	printf("\t%.2d\tchar\n\n", n);	
-	
-	n = printf("Buya %.4d...", 42);	
-	printf("\t%.2d\tchar\n", n);	
-	n = ft_printf("Buya %.4d...", 42);	
-	printf("\t%.2d\tchar\n\n", n);	
-	
 	n = printf("5 %% 2 = %c", '1');	
 	printf("\t%.2d\tchar\n", n);	
 	n = ft_printf("5 %% 2 = %c", '1');	
@@ -29,7 +19,7 @@ int
 
 	printf_str();	
 
-//	printf_nbr();	
+	printf_nbr();	
 
 	return (0);
 }
@@ -45,16 +35,6 @@ void
 	n = printf("str : %s", str);	
 	printf("\t%.2d\tchar\n", n);	
 	n = printf("str : %s", str);	
-	printf("\t%.2d\tchar\n\n", n);	
-	
-	n = printf("str : %.5s", str);	
-	printf("\t%.2d\tchar\n", n);	
-	n = printf("str : %.5s", str);	
-	printf("\t%.2d\tchar\n\n", n);	
-	
-	n = printf("str : %.59s", str);	
-	printf("\t%.2d\tchar\n", n);	
-	n = printf("str : %.59s", str);	
 	printf("\t%.2d\tchar\n\n", n);	
 
 }
@@ -76,7 +56,7 @@ void
 
 	n = printf("int\t\t%d", i);	
 	printf("\t%.2d\tchar\n", n);	
-	n = printf("int\t\t%d", i);	
+	n = ft_printf("int\t\t%d", i);	
 	printf("\t%.2d\tchar\n\n", n);	
 	
 
@@ -84,7 +64,7 @@ void
 
 	n = printf("int\t\t%x", i);	
 	printf("\t%.2d\tchar\n", n);	
-	n = printf("int\t\t%x", i);	
+	n = ft_printf("int\t\t%x", i);	
 	printf("\t%.2d\tchar\n\n", n);	
 
 
