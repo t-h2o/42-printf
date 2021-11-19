@@ -14,7 +14,7 @@
 #include	"./libftprintf.h"
 
 static void
-	ft_write_nbr(int n)
+	ft_write_nbr(long n)
 {
 	int	fd = 1;
 
@@ -29,17 +29,17 @@ static void
 		}
 		if (n >= 10)
 		{
-			ft_putnbr_fd(n / 10, fd);
-			ft_putnbr_fd(n % 10, fd);
+			ft_write_nbr(n / 10);
+			ft_write_nbr(n % 10);
 		}
 		else
-			ft_putchar_fd(n + '0', fd);
+			ft_putchar_fd((int)n + '0', fd);
 	}
 
 }
 
 int
-	ft_intlen(int nbr)
+	ft_intlen(long nbr)
 {
 	size_t	n;
 	int		c;
@@ -61,7 +61,7 @@ int
 
 
 int
-	ft_putdec(int n, int prec)
+	ft_putdec(long n, int prec)
 {
 	int	len;
 	int	sum;

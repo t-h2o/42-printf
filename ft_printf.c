@@ -30,10 +30,16 @@ int
 	prec = -1;
 	if (*s == '.')
 			s = ft_precision(s, &prec);
-	if (*s == 'd')
+	if (*s == 'l')
+		s++;
+	if (*s == 'd' || *s == 'i')
 	{
 		n = va_arg(*arg, int);
-		sum += ft_putdec(n, prec);
+		sum += ft_putdec((long)n, prec);
+	}
+	if (*s == 'u')
+	{
+		sum += ft_putdec((long) (va_arg(*arg, unsigned int)), prec);
 	}
 	if (*s == 's')
 	{	

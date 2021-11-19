@@ -58,15 +58,27 @@ void
 	printf("\t%.2d\tchar\n", n);	
 	n = ft_printf("int\t\t%d", i);	
 	printf("\t%.2d\tchar\n\n", n);	
+
+i = FT_32B_MIN;
+	n = printf("int\t\t%d", i);	
+	printf("\t%.2d\tchar\n", n);	
+	n = ft_printf("int\t\t%d", i);	
+	printf("\t%.2d\tchar\n\n", n);	
 	
 
 	// HEXADECIMAL
-
+i = FT_32B_MAX;
 	n = printf("int\t\t%x", i);	
 	printf("\t%.2d\tchar\n", n);	
 	n = ft_printf("int\t\t%x", i);	
 	printf("\t%.2d\tchar\n\n", n);	
 
+i = FT_32B_MIN;
+i = -1234;
+	n = printf("int\t\t%x", i);	
+	printf("\t%.2d\tchar\n", n);	
+	n = ft_printf("int\t\t%x", i);	
+	printf("\t%.2d\tchar\n\n", n);	
 
 // UNSIGNED INT
 
