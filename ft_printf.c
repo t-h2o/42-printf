@@ -3,37 +3,72 @@
 
 #include	<stdio.h>
 
-int
-	ft_intlen(int nbr)
+const char
+	*ft_precision(const char *s, int *prec)
 {
-	size_t	n;
-	int		c;
+	int	ten;
 
-	c = 1;
-	if (nbr < 0)
-		c++;
-	if (nbr < 0)
-		n = (size_t) - nbr;
-	else
-		n = (size_t) nbr;
-	while ( n > 10)
+	*prec = ft_atoi(++s);
+	ten = 1;
+	while ((1 + *prec) / ten > 0)
 	{
-		n /= 10;
-		c++;
+		ten *= 10;
+		s++;
 	}
-	return (c);
+	return (s);
+}
+
+int
+	ft_flags(const char *s, va_list *arg)
+{
+	int		prec;
+	int		sum;
+	int		n;
+	char	*str;
+
+	sum = 0;
+	prec = -1;
+	if (*s == '.')
+			s = ft_precision(s, &prec);
+	if (*s == 'l')
+		s++;
+	if (*s == 'd' || *s == 'i')
+	{
+		n = va_arg(*arg, int);
+		sum += ft_putdec((long)n, prec);
+	}
+	if (*s == 'u')
+	{
+		sum += ft_putdec((long) (va_arg(*arg, unsigned int)), prec);
+	}
+	if (*s == 's')
+	{	
+		str = va_arg(*arg, char *);
+		sum += ft_putstr(str, prec);
+	}
+	if (*s == 'c')
+		sum += ft_putchar(va_arg(*arg, int));
+	if (*s == 'x')
+	{
+		long ptr = (long)va_arg(*arg, int);
+		sum += ft_puthex(ptr);
+	}
+	if (*s == 'p')
+	{
+		long ptr = va_arg(*arg, long);
+		ft_putstr_fd("0x", 1);
+		ft_puthex(ptr);
+	}
+	if (*s == '%')
+		sum += ft_putchar('%');
+	return (sum);
 }
 
 int
 	ft_printf(const char *s, ...)
 {
 	va_list	arg;
-	int		prec;
-	int		ten;
-	int		len;
-	int		n;
 	int		sum;
-	char	*str;
 
 	va_start(arg, s);
 	
@@ -42,77 +77,11 @@ int
 	{
 		if (*s == '%')
 		{
-			prec = -1;
 			s++;
-			if (*s == '.')
-				{
-					prec = ft_atoi(++s);
-					ten = 1;
-					while (prec / ten > 0)
-					{
-						ten *= 10;
-						s++;
-					}
-					if (prec == 0)
-						s++;
-				}
-			if (*s == 'l')
-			{
-				s++;
-				if (*s == 'x')
-				{
-					
-				}
-			}
-			if (*s == 'd')
-			{
-				if (prec == -1)
-					prec = 0;
-				n = va_arg(arg, int);
-				len = ft_intlen(n);
-				if (len > prec)
-					sum += len;
-				else
-					sum += prec;
-				while (prec-- > len)
-					ft_putchar_fd('0', 1);
-				ft_putdec(n);
-			}
-			if (*s == 's')
-			{	
-				str = va_arg(arg, char *);
-				if (prec >= 0)
-					str = ft_substr(str, 0, prec);
-				sum += ft_strlen(str);
-				ft_putstr_fd(str, 1);
-			}
-			if (*s == 'c')
-			{
-				n = va_arg(arg, int);
-				sum++;
-				ft_putchar_fd(n, 1);
-			}
-			if (*s == 'x')
-			{
-				long ptr = (long)va_arg(arg, int);
-				sum += ft_puthex(ptr);
-			}
-			if (*s == 'p')
-			{
-				long ptr = va_arg(arg, long);
-				ft_putstr_fd("0x", 1);
-				ft_puthex(ptr);
-			}
-			if (*s == '%')
-			{
-				sum += ft_putchar('%');
-			}
-			
+			sum += ft_flags(s, &arg);
 		}
 		else
-		{
 			sum += ft_putchar(*s);
-		}
 		s++;
 	}
 	va_end(arg);

@@ -10,14 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"./libft.h"
-#include	"./libftprintf.h"
+#include	"libft.h"
 
-static void
-	ft_write_nbr(long n)
+void
+	ft_putnbr_fd(int n, int fd)
 {
-	int	fd = 1;
-
 	if (n == FT_32B_MIN)
 		ft_putstr_fd("-2147483648", fd);
 	else
@@ -29,51 +26,10 @@ static void
 		}
 		if (n >= 10)
 		{
-			ft_write_nbr(n / 10);
-			ft_write_nbr(n % 10);
+			ft_putnbr_fd(n / 10, fd);
+			ft_putnbr_fd(n % 10, fd);
 		}
 		else
-			ft_putchar_fd((int)n + '0', fd);
+			ft_putchar_fd(n + '0', fd);
 	}
-
-}
-
-int
-	ft_intlen(long nbr)
-{
-	size_t	n;
-	int		c;
-
-	c = 1;
-	if (nbr < 0)
-		c++;
-	if (nbr < 0)
-		n = (size_t) - nbr;
-	else
-		n = (size_t) nbr;
-	while ( n > 10)
-	{
-		n /= 10;
-		c++;
-	}
-	return (c);
-}
-
-
-int
-	ft_putdec(long n, int prec)
-{
-	int	len;
-	int	sum;
-
-	len = ft_intlen(n);
-	if (len > prec)
-		sum = len;
-	else
-		sum = prec;
-	while (prec-- > len)
-		ft_putchar_fd('0', 1);
-
-	ft_write_nbr(n);
-	return (sum);
 }
