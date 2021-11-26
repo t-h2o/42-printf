@@ -2,7 +2,7 @@ SRCS		=	main.c \
 				test_c.c test_s.c \
 				test_p.c test_d.c \
 				test_u.c test_x.c \
-				test_X.c test_5.c
+				test_xx.c test_5.c
 
 
 

@@ -3,8 +3,8 @@
 void
 	test_x(void)
 {
-	int	n;
-	int	sum;
+	unsigned int	n;
+	int				sum;
 
 	n = 0;
 	sum = printf("petit hexadecimal : %x\n", n);

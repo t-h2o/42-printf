@@ -15,7 +15,7 @@ int
 	test_d();
 	test_u();
 	test_x();
-	test_X();
+	test_xx();
 	test_5();
 	return (0);
 }

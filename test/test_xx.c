@@ -1,10 +1,10 @@
 #include	"./test.h"
 
 void
-	test_X(void)
+	test_xx(void)
 {
-	int	n;
-	int	sum;
+	unsigned int	n;
+	int				sum;
 
 	n = 0;
 	sum = printf("petit hexadecimal : %X\n", n);
