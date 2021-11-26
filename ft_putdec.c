@@ -61,19 +61,11 @@ int
 
 
 int
-	ft_putdec(long n, int prec)
+	ft_putdec(long n)
 {
-	int	len;
 	int	sum;
 
-	len = ft_intlen(n);
-	if (len > prec)
-		sum = len;
-	else
-		sum = prec;
-	while (prec-- > len)
-		ft_putchar_fd('0', 1);
-
+	sum = ft_intlen(n);
 	ft_write_nbr(n);
 	return (sum);
 }

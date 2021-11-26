@@ -1,4 +1,10 @@
-SRCS		= main.c
+SRCS		=	main.c \
+				test_c.c test_s.c \
+				test_p.c test_d.c \
+				test_u.c test_x.c \
+				test_X.c test_5.c
+
+
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -20,6 +26,7 @@ LIB		= -L. -lftprintf -lft
 
 ${NAME}:	${OBJS}
 	cp ../libftprintf.a ./
+	cp ../libft/libft.a ./
 	${CC} ${FLAGS} -o ${NAME} ${OBJS} ${LIB}
 
 all:		${NAME}
