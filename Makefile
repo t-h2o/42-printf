@@ -1,16 +1,22 @@
-SRCS	= ft_printf.c ft_puthex.c ft_putdec.c ft_putstr.c ft_putchar.c
+SRCS_PATH	= ./srcs/
 
-OBJS	= ${SRCS:.c=.o}
+SRCS	=	${SRCS_PATH}ft_printf.c \
+			${SRCS_PATH}ft_puthex.c \
+			${SRCS_PATH}ft_putdec.c \
+			${SRCS_PATH}ft_putstr.c \
+			${SRCS_PATH}ft_putchar.c
 
-HEADER	= libft.h
+OBJS	=	${SRCS:.c=.o}
 
-CC		= gcc
+HEADER	=	libft.h
 
-FLAGS	= -Wall -Wextra -Werror
+CC		=	gcc
 
-NAME	= libftprintf.a
+FLAGS	=	-Wall -Wextra -Werror
 
-RM		= rm -f
+NAME	=	libftprintf.a
+
+RM		=	rm -f
 
 
 .c.o:

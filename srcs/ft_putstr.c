@@ -1,5 +1,5 @@
-#include	"./libft.h"
-#include	"./libftprintf.h"
+#include	"../libft.h"
+#include	"../libftprintf.h"
 
 int
 	ft_putstr(char *strtoprint)

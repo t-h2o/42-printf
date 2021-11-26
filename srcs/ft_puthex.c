@@ -1,5 +1,5 @@
-#include	"./libft.h"
-#include	"./libftprintf.h"
+#include	"../libft.h"
+#include	"../libftprintf.h"
 
 static int
 	ft_convhex(int n, int maj)

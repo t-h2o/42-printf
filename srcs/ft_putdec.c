@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"./libft.h"
-#include	"./libftprintf.h"
+#include	"../libft.h"
+#include	"../libftprintf.h"
 
 static void
 	ft_write_nbr(long n)

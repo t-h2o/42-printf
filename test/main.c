@@ -10,12 +10,12 @@ int
 	main(void)
 {
 	test_c();
-//	test_s();
-//	test_p();
-//	test_d();
-//	test_u();
-//	test_x();
-//	test_X();
+	test_s();
+	test_p();
+	test_d();
+	test_u();
+	test_x();
+	test_X();
 	test_5();
 	return (0);
 }
