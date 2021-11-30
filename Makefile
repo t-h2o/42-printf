@@ -8,7 +8,7 @@ SRCS	=	${SRCS_PATH}ft_printf.c \
 
 OBJS	=	${SRCS:.c=.o}
 
-HEADER	=	libft.h
+HEADER	=	libft.h libftprintf.h
 
 CC		=	gcc
 
@@ -41,6 +41,6 @@ log:
 
 norm:
 	norminette ${SRCS}
-	norminette -RCheckDefine ${HEADER}
+	norminette ${HEADER}
 
 .PHONY: all clean fclean re bonus so
