@@ -6,7 +6,7 @@
 /*   By: tgrivel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:00:41 by tgrivel           #+#    #+#             */
-/*   Updated: 2021/11/05 18:43:34 by tgrivel          ###   ########.fr       */
+/*   Updated: 2021/11/26 15:50:12 by tgrivel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 static void
 	ft_write_nbr(long n)
 {
-	int	fd = 1;
+	int	fd;
 
+	fd = 1;
 	if (n == FT_32B_MIN)
 		ft_putstr_fd("-2147483648", fd);
 	else
@@ -35,7 +36,6 @@ static void
 		else
 			ft_putchar_fd((int)n + '0', fd);
 	}
-
 }
 
 int
@@ -51,14 +51,13 @@ int
 		n = (size_t) - nbr;
 	else
 		n = (size_t) nbr;
-	while ( n > 10)
+	while (n > 10)
 	{
 		n /= 10;
 		c++;
 	}
 	return (c);
 }
-
 
 int
 	ft_putdec(long n)

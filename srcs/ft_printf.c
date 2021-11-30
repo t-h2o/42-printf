@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tgrivel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/26 15:48:14 by tgrivel           #+#    #+#             */
+/*   Updated: 2021/11/26 15:49:08 by tgrivel          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include	"../libftprintf.h"
 #include	"../libft.h"
 
 #include	<stdio.h>
 
-int
+static int
 	ft_flags(const char *s, va_list *arg)
 {
 	int		sum;
@@ -37,7 +49,6 @@ int
 	int		sum;
 
 	va_start(arg, s);
-	
 	sum = 0;
 	while (*s)
 	{
