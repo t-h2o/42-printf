@@ -6,7 +6,7 @@
 /*   By: tgrivel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:00:41 by tgrivel           #+#    #+#             */
-/*   Updated: 2021/11/26 15:50:12 by tgrivel          ###   ########.fr       */
+/*   Updated: 2021/11/30 12:45:02 by tgrivel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,18 @@ static void
 	int	fd;
 
 	fd = 1;
-	if (n == FT_32B_MIN)
-		ft_putstr_fd("-2147483648", fd);
-	else
+	if (n < 0)
 	{
-		if (n < 0)
-		{
-			ft_putchar_fd('-', fd);
-			n = -n;
-		}
-		if (n >= 10)
-		{
-			ft_write_nbr(n / 10);
-			ft_write_nbr(n % 10);
-		}
-		else
-			ft_putchar_fd((int)n + '0', fd);
+		ft_putchar_fd('-', fd);
+		n = -n;
 	}
+	if (n >= 10)
+	{
+		ft_write_nbr(n / 10);
+		ft_write_nbr(n % 10);
+	}
+	else
+		ft_putchar_fd((int)n + '0', fd);
 }
 
 int

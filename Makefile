@@ -40,6 +40,7 @@ log:
 	git log --graph --oneline
 
 norm:
+	norminette libft/
 	norminette ${SRCS}
 	norminette ${HEADER}
 
