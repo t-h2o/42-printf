@@ -1,26 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgrivel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/26 13:51:51 by tgrivel           #+#    #+#             */
-/*   Updated: 2021/11/04 16:38:00 by tgrivel          ###   ########.fr       */
+/*   Created: 2021/11/26 15:51:06 by tgrivel           #+#    #+#             */
+/*   Updated: 2021/11/26 15:51:09 by tgrivel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h"
+#include	"../libftprintf.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+static int
+	pf_strlen(char *s)
 {
-	size_t	i;
+	int	len;
 
-	i = 0;
-	while (len--)
-	{
-		((char *)b)[i] = (char)c;
-		i++;
-	}
-	return (b);
+	len = 0;
+	while (*s++)
+		len++;
+	return (len);
+}
+
+int
+	pf_putchar(int n)
+{
+	char	c;
+
+	c = n;
+	write(1, &c, 1);
+	return (1);
+}
+
+int
+	pf_putstr(char *s)
+{
+	int	i;
+
+	if (!s)
+		return (0);
+	i = -1;
+	while (s[++i])
+		pf_putchar(s[i]);
+	return (pf_strlen(s));
 }

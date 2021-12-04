@@ -10,18 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../libft.h"
 #include	"../libftprintf.h"
+
+static void
+	ft_write_hex(unsigned long long n, int maj)
+{
+	char	c;
+	char	ref;
+
+	if (n > 16)
+	{
+		ft_write_hex(n / 16, maj);
+		ft_write_hex(n % 16, maj);
+	}
+	else
+	{
+		c = (char)n;
+		if (maj)
+			ref = 'A';
+		else
+			ref = 'a';
+		if (c < 10)
+			c = c + '0';
+		else
+			c = (c - 10) + ref;
+		pf_putchar(c);
+	}
+}
 
 static void
 	ft_write_nbr(long n)
 {
-	int	fd;
-
-	fd = 1;
 	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
+		pf_putchar('-');
 		n = -n;
 	}
 	if (n >= 10)
@@ -30,15 +52,16 @@ static void
 		ft_write_nbr(n % 10);
 	}
 	else
-		ft_putchar_fd((int)n + '0', fd);
+		pf_putchar((int)n + '0');
 }
 
 int
-	ft_intlen(long nbr)
+	pf_putdec(long nbr)
 {
 	size_t	n;
 	int		c;
 
+	ft_write_nbr(nbr);
 	c = 1;
 	if (nbr < 0)
 		c++;
@@ -55,11 +78,16 @@ int
 }
 
 int
-	ft_putdec(long n)
+	pf_puthex(unsigned long long n, int maj)
 {
-	int	sum;
+	int		c;
 
-	sum = ft_intlen(n);
-	ft_write_nbr(n);
-	return (sum);
+	ft_write_hex(n, maj);
+	c = 1;
+	while (n > 16)
+	{
+		n /= 16;
+		c++;
+	}
+	return (c);
 }

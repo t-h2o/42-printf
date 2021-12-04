@@ -1,10 +1,8 @@
 SRCS_PATH	= ./srcs/
 
-SRCS	=	${SRCS_PATH}ft_printf.c \
-			${SRCS_PATH}ft_puthex.c \
-			${SRCS_PATH}ft_putdec.c \
-			${SRCS_PATH}ft_putstr.c \
-			${SRCS_PATH}ft_putchar.c
+SRCS	=	${SRCS_PATH}pf_printf.c \
+			${SRCS_PATH}pf_putnbr.c \
+			${SRCS_PATH}pf_putstr.c
 
 OBJS	=	${SRCS:.c=.o}
 

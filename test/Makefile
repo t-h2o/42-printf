@@ -18,15 +18,15 @@ NAME	= pass
 
 RM		= rm -f
 
-LIB		= -L. -lftprintf -lft
+LIB		= -L. -lftprintf
 
 
 .c.o:
 	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
+	make -C ./.. 
 	cp ../libftprintf.a ./
-	cp ../libft/libft.a ./
 	${CC} ${FLAGS} -o ${NAME} ${OBJS} ${LIB}
 
 all:		${NAME}
