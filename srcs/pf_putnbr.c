@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../libftprintf.h"
+#include	"libftprintf.h"
 
 static void
 	ft_write_hex(unsigned long long n, int maj)

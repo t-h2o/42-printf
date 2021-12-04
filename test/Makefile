@@ -8,7 +8,8 @@ SRCS		=	main.c \
 
 OBJS	= ${SRCS:.c=.o}
 
-HEADER	= libft.h
+H_DIR	=	./../headers/
+HEADER	= libftprintf.h
 
 CC		= gcc
 
@@ -22,7 +23,7 @@ LIB		= -L. -lftprintf
 
 
 .c.o:
-	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
+	${CC} ${FLAGS} -I ${H_DIR} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 	make -C ./.. 
@@ -32,18 +33,20 @@ ${NAME}:	${OBJS}
 all:		${NAME}
 
 clean:
+	make clean -C ./.. 
 	${RM} ${OBJS}
 
 fclean:		clean
+	make fclean -C ./.. 
 	${RM} ${NAME}
 
 re:			fclean	all
+	make re -C ./.. 
 
 log:
-	git log --graph --oneline
+	make log -C ./..
 
 norm:
-	norminette ${SRCS}
-	norminette -RCheckDefine ${HEADER}
+	make norm -C ./..
 
 .PHONY: all clean fclean re bonus so

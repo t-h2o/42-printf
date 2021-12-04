@@ -1,4 +1,4 @@
-#include	"../libftprintf.h"
+#include	"libftprintf.h"
 #include	<stdio.h>
 
 # define FT_32B_MAX		2147483647

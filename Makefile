@@ -1,24 +1,25 @@
 SRCS_PATH	= ./srcs/
 
+NAME	=	libftprintf.a
+
 SRCS	=	${SRCS_PATH}pf_printf.c \
 			${SRCS_PATH}pf_putnbr.c \
 			${SRCS_PATH}pf_putstr.c
 
-OBJS	=	${SRCS:.c=.o}
+HEADER_DIR	=	./headers/
+HEADER	=	libftprintf.h
 
-HEADER	=	libft.h libftprintf.h
+OBJS	=	${SRCS:.c=.o}
 
 CC		=	gcc
 
 FLAGS	=	-Wall -Wextra -Werror
 
-NAME	=	libftprintf.a
-
 RM		=	rm -f
 
 
 .c.o:
-	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
+	${CC} ${FLAGS} -I ${HEADER_DIR} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 	ar rc ${NAME} ${OBJS} 
@@ -38,7 +39,6 @@ log:
 	git log --graph --oneline
 
 norm:
-	norminette libft/
 	norminette ${SRCS}
 	norminette ${HEADER}
 

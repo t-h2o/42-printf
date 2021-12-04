@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../libftprintf.h"
+#include	"libftprintf.h"
 
 static int
 	pf_strlen(char *s)
