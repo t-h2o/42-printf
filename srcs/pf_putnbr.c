@@ -6,7 +6,7 @@
 /*   By: tgrivel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:00:41 by tgrivel           #+#    #+#             */
-/*   Updated: 2021/11/30 12:45:02 by tgrivel          ###   ########.fr       */
+/*   Updated: 2021/12/06 14:54:13 by tgrivel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void
 	char	c;
 	char	ref;
 
-	if (n > 16)
+	if (n >= 16)
 	{
 		ft_write_hex(n / 16, maj);
 		ft_write_hex(n % 16, maj);
@@ -69,7 +69,7 @@ int
 		n = (size_t) - nbr;
 	else
 		n = (size_t) nbr;
-	while (n > 10)
+	while (n >= 10)
 	{
 		n /= 10;
 		c++;
@@ -84,7 +84,7 @@ int
 
 	ft_write_hex(n, maj);
 	c = 1;
-	while (n > 16)
+	while (n >= 16)
 	{
 		n /= 16;
 		c++;

@@ -6,7 +6,7 @@
 /*   By: tgrivel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 15:51:06 by tgrivel           #+#    #+#             */
-/*   Updated: 2021/11/26 15:51:09 by tgrivel          ###   ########.fr       */
+/*   Updated: 2021/12/06 15:06:59 by tgrivel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int
 	int	i;
 
 	if (!s)
-		return (0);
+		return (ft_printf("(null)"));
 	i = -1;
 	while (s[++i])
 		pf_putchar(s[i]);

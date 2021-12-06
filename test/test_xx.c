@@ -6,6 +6,10 @@ void
 	unsigned int	n;
 	int				sum;
 
+	printf("\n- - - - - - - - - -\n");
+	printf("\t%%X");
+	printf("\n- - - - - - - - - -\n");
+
 	n = 0;
 	sum = printf("petit hexadecimal : %X\n", n);
 	printf("%d char printed\n", sum);
