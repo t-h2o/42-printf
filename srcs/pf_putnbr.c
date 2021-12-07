@@ -6,14 +6,14 @@
 /*   By: tgrivel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:00:41 by tgrivel           #+#    #+#             */
-/*   Updated: 2021/12/06 14:54:13 by tgrivel          ###   ########.fr       */
+/*   Updated: 2021/12/07 14:39:41 by tgrivel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libftprintf.h"
 
 static void
-	ft_write_hex(unsigned long long n, int maj)
+	ft_write_hex(unsigned int n, int maj)
 {
 	char	c;
 	char	ref;
@@ -78,7 +78,7 @@ int
 }
 
 int
-	pf_puthex(unsigned long long n, int maj)
+	pf_puthex(unsigned int n, int maj)
 {
 	int		c;
 

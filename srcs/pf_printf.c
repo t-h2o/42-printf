@@ -6,7 +6,7 @@
 /*   By: tgrivel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 15:48:14 by tgrivel           #+#    #+#             */
-/*   Updated: 2021/11/26 15:49:08 by tgrivel          ###   ########.fr       */
+/*   Updated: 2021/12/07 14:42:02 by tgrivel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ static int
 	if (*s == 'c')
 		sum = pf_putchar(va_arg(*arg, int));
 	if (*s == 'x')
-		sum = pf_puthex(va_arg(*arg, unsigned long), 0);
+		sum = pf_puthex(va_arg(*arg, unsigned int), 0);
 	if (*s == 'X')
-		sum = pf_puthex(va_arg(*arg, unsigned long), 1);
+		sum = pf_puthex(va_arg(*arg, unsigned int), 1);
 	if (*s == 'p')
 	{
 		pf_putstr("0x");
-		sum = pf_puthex((unsigned long long)va_arg(*arg, unsigned long), 0) + 2;
+		sum = pf_putadd(va_arg(*arg, unsigned long)) + 2;
 	}
 	if (*s == '%')
 		sum = pf_putchar('%');

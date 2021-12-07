@@ -12,15 +12,17 @@ arguments variadiques.
 
 [Some great informations about C operators](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B)
 
-## Bytes values
+# Data type
 
-|data type		|bits	|bytes	|
-|:-				|:-:	|:-:	|
-|int			|32		|4		|
-|unsigned int	|32		|4		|
-|long			|64		|8		|
-|unsigned long	|64		|8		|
-|char			|8		|1		|
+|printf letter	|data type		|Base	|signed	|
+|:-				|:-				|:-:	|:-:	|
+|%c				|int			|[char]	|		|
+|%d				|int			|10		|-+		|
+|%i				|int			|10		|-+		|
+|%u				|unsigned int	|10		|+		|
+|%x				|unsigned int	|16		|+		|
+|%X				|unsigned int	|16		|+		|
+|%p				|unsigned long	|16		|+		|
 
 
 ## Number

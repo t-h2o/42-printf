@@ -1,28 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgrivel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 19:05:32 by tgrivel           #+#    #+#             */
-/*   Updated: 2021/12/07 14:42:25 by tgrivel          ###   ########.fr       */
+/*   Created: 2021/11/02 14:00:41 by tgrivel           #+#    #+#             */
+/*   Updated: 2021/12/07 14:43:34 by tgrivel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
-# include	<stdarg.h>
-# include	<unistd.h>
-	// functions
+#include	"libftprintf.h"
 
-int		ft_printf(const char *s, ...);
+static void
+	ft_write_hex(unsigned long n)
+{
+	char	c;
 
-int		pf_putstr(char *strtoprint);
-int		pf_intlen(long nbr);
-int		pf_putchar(int n);
-int		pf_puthex(unsigned int n, int maj);
-int		pf_putadd(unsigned long n);
-int		pf_putdec(long n);
+	if (n >= 16)
+	{
+		ft_write_hex(n / 16);
+		ft_write_hex(n % 16);
+	}
+	else
+	{
+		c = (char)n;
+		if (c < 10)
+			c = c + '0';
+		else
+			c = (c - 10) + 'a';
+		pf_putchar(c);
+	}
+}
 
-#endif /* LIBFTPRINTF_H */
+int
+	pf_putadd(unsigned long n)
+{
+	int		c;
+
+	ft_write_hex(n);
+	c = 1;
+	while (n >= 16)
+	{
+		n /= 16;
+		c++;
+	}
+	return (c);
+}
