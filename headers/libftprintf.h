@@ -6,7 +6,7 @@
 /*   By: tgrivel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 19:05:32 by tgrivel           #+#    #+#             */
-/*   Updated: 2021/12/07 14:42:25 by tgrivel          ###   ########.fr       */
+/*   Updated: 2022/01/03 12:02:33 by tgrivel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 int		ft_printf(const char *s, ...);
 
 int		pf_putstr(char *strtoprint);
-int		pf_intlen(long nbr);
+//int		pf_intlen(long nbr);
 int		pf_putchar(int n);
 int		pf_puthex(unsigned int n, int maj);
 int		pf_putadd(unsigned long n);
