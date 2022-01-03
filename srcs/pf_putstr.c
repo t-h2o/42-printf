@@ -6,22 +6,11 @@
 /*   By: tgrivel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 15:51:06 by tgrivel           #+#    #+#             */
-/*   Updated: 2021/12/06 15:11:11 by tgrivel          ###   ########.fr       */
+/*   Updated: 2022/01/03 14:16:02 by tgrivel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libftprintf.h"
-
-static int
-	pf_strlen(char *s)
-{
-	int	len;
-
-	len = 0;
-	while (*s++)
-		len++;
-	return (len);
-}
 
 int
 	pf_putchar(int n)
@@ -43,5 +32,5 @@ int
 	i = -1;
 	while (s[++i])
 		pf_putchar(s[i]);
-	return (pf_strlen(s));
+	return (i);
 }

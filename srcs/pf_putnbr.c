@@ -6,7 +6,7 @@
 /*   By: tgrivel <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:00:41 by tgrivel           #+#    #+#             */
-/*   Updated: 2021/12/07 14:39:41 by tgrivel          ###   ########.fr       */
+/*   Updated: 2022/01/03 13:46:01 by tgrivel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ static void
 int
 	pf_putdec(long nbr)
 {
-	size_t	n;
-	int		c;
+	unsigned int	n;
+	int				c;
 
 	ft_write_nbr(nbr);
 	c = 1;
